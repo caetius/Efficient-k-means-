@@ -89,7 +89,7 @@ for col in range(len(comb)):
         h = Matrix.readMatrix(credentials.preprocessed, i * hp_size, i * hp_size + hp_size)
         count = 0
         for row in selected_comb:
-            scores[i,count] = np.sum(np.abs(np.dot(h,row)))
+            scores[i,count] = np.sum(np.abs(np.dot(h,row)))**2
             count = count + 1
     clusters = np.argmin(scores, axis=1)
     total_score = np.sum(np.min(scores,axis=1))
